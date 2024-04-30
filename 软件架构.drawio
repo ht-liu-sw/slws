@@ -1,0 +1,113 @@
+<mxfile host="65bd71144e">
+    <diagram id="JL-fLb2U9QOSZtjIViiS" name="第 1 页">
+        <mxGraphModel dx="962" dy="1722" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="39" value="界面" style="swimlane;" parent="1" vertex="1">
+                    <mxGeometry x="285" y="50" width="350" height="310" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="标定参数控制" style="rounded=0;whiteSpace=wrap;html=1;" parent="39" vertex="1">
+                    <mxGeometry x="210" y="40" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="交互界面" style="rounded=0;whiteSpace=wrap;html=1;" parent="39" vertex="1">
+                    <mxGeometry x="20" y="40" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;shape=link;" parent="39" source="14" target="16" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="&amp;lt; 暂停功能&lt;br&gt;&amp;gt; 其它模块的状态显示&lt;br&gt;&amp;gt; 标定流程状态显示" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#FFF9B2;strokeColor=none;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=#FFF2A1;shadow=1;size=20;pointerEvents=1;" vertex="1" parent="39">
+                    <mxGeometry x="105" y="120" width="140" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="机械臂" style="swimlane;" parent="1" vertex="1">
+                    <mxGeometry x="10" y="410" width="275" height="390" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="机械臂控制" style="rounded=0;whiteSpace=wrap;html=1;" parent="40" vertex="1">
+                    <mxGeometry x="77.5" y="40" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="ABB机械臂&lt;br&gt;（RWS 2.0？）" style="rounded=0;whiteSpace=wrap;html=1;" parent="40" vertex="1">
+                    <mxGeometry x="12.5" y="146" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="电磁阀？&lt;br&gt;（末端执行器）" style="rounded=0;whiteSpace=wrap;html=1;" parent="40" vertex="1">
+                    <mxGeometry x="142.5" y="146" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;shape=link;" parent="40" source="12" target="44" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;shape=link;" parent="40" source="12" target="5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="1.提供接口，参数化进行装卸砝码操作&lt;br&gt;2.设备状态回显&lt;br&gt;3.控制机械臂和末端执行器" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#FFF9B2;strokeColor=none;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=#FFF2A1;shadow=1;size=20;pointerEvents=1;autosize=0;" vertex="1" parent="40">
+                    <mxGeometry x="97.5" y="219" width="140" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="中央控制模块" style="swimlane;" parent="1" vertex="1">
+                    <mxGeometry x="350" y="406" width="200" height="404" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="标定流程控制" style="rounded=0;whiteSpace=wrap;html=1;" parent="41" vertex="1">
+                    <mxGeometry x="40" y="50" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="标定流程执行" style="rounded=0;whiteSpace=wrap;html=1;" parent="41" vertex="1">
+                    <mxGeometry x="40" y="160" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;shape=link;" parent="41" source="17" target="9" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="1.提供接口，参数化执行标定流程&lt;br&gt;2.各个标定流水线的独立暂停功能&lt;br&gt;3.保证机械臂的独占使用&lt;br&gt;4.回显状态" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#FFF9B2;strokeColor=none;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=#FFF2A1;shadow=1;size=20;pointerEvents=1;" vertex="1" parent="41">
+                    <mxGeometry x="40" y="235" width="140" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="传感器节点" style="swimlane;" parent="1" vertex="1">
+                    <mxGeometry x="610" y="406" width="210" height="395" as="geometry">
+                        <mxRectangle x="610" y="594" width="100" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="6" value="传感器通信&lt;br&gt;(Modbus?)" style="rounded=0;whiteSpace=wrap;html=1;" parent="42" vertex="1">
+                    <mxGeometry x="35" y="156" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="传感器数据处理&lt;br&gt;（记录、计算、上传）" style="rounded=0;whiteSpace=wrap;html=1;" parent="42" vertex="1">
+                    <mxGeometry x="35" y="46" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;shape=link;" parent="42" source="10" target="6" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="1.提供接口，记录&lt;br&gt;固定时长的数据，缓存在内部&lt;br&gt;2.提供接口，处理数据并上传到服务器&lt;br&gt;3.回显状态" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#FFF9B2;strokeColor=none;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=#FFF2A1;shadow=1;size=20;pointerEvents=1;" vertex="1" parent="42">
+                    <mxGeometry x="35" y="235" width="140" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="标定台模块" style="swimlane;startSize=23;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="901" width="300" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="标定台&lt;br&gt;（Modbus?）" style="rounded=0;whiteSpace=wrap;html=1;" parent="43" vertex="1">
+                    <mxGeometry x="20" y="57" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="0.标定台的创建和释放&lt;br&gt;1.提供接口，对特定标定台执行单次标定流程&lt;br&gt;2.错误报告&lt;br&gt;3.标定台两电机的控制&lt;br&gt;4.状态回显&lt;br&gt;5.暂停功能" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#FFF9B2;strokeColor=none;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=#FFF2A1;shadow=1;size=20;pointerEvents=1;" vertex="1" parent="43">
+                    <mxGeometry x="150" y="30" width="140" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="外设" style="swimlane;" parent="1" vertex="1">
+                    <mxGeometry x="490" y="901" width="310" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="其它外设&lt;br&gt;（安全光栅...）" style="rounded=0;whiteSpace=wrap;html=1;" parent="46" vertex="1">
+                    <mxGeometry x="40" y="57" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="&amp;gt; 外设控制&lt;br&gt;&amp;lt; 状态反馈" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#FFF9B2;strokeColor=none;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=#FFF2A1;shadow=1;size=20;pointerEvents=1;" vertex="1" parent="46">
+                    <mxGeometry x="170" y="28.5" width="140" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;shape=link;" parent="1" source="41" target="42" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;shape=link;" parent="1" source="41" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="293" y="602.2024793388427" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="18" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;shape=link;" parent="1" source="39" target="41" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;shape=link;" parent="1" source="41" target="46" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;shape=link;" parent="1" source="41" target="43" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
