@@ -1,0 +1,4 @@
+float64 motor_xy_angle_offset
+float64 motor_xz_angle_offset
+---
+bool success

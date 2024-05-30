@@ -12,12 +12,9 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(sl_interfaces REQUIRED)
+find_package(can_msgs REQUIRED)
+find_package(backward_ros REQUIRED)
 
-include(${CMAKE_CURRENT_SOURCE_DIR}/ECanVci/CMakeLists.txt)
-include_directories(${ECanVci_INCLUDE_DIRS})
-link_directories(${ECanVci_LIB_DIRS})
-install(FILES ${ECanVci_LIB_DIRS}/${ECanVci_LIBS}
-  DESTINATION lib/)
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 set(CMAKE_INSTALL_RPATH ${CMAKE_INSTALL_PREFIX}/lib/)
 
@@ -33,17 +30,13 @@ $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/3rdparty>
   $<INSTALL_INTERFACE:include>)
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${LIBUSB_INCLUDE_DIRS})
-target_link_libraries(
-  ${PROJECT_NAME}
-  ${ECanVci_LIB_DIRS}/${ECanVci_LIBS}
-  ${ECanVci_LIB_DIRS}/${libusb_LIBS}
-)
 
 target_compile_features(${PROJECT_NAME} PUBLIC c_std_99 cxx_std_20)  # Require C99 and C++17 -> C++20
 ament_target_dependencies(
   ${PROJECT_NAME}
   "rclcpp"
   "sl_interfaces"
+  "can_msgs"
 )
 
 install(TARGETS ${PROJECT_NAME}
@@ -63,12 +56,6 @@ if(BUILD_TESTING)
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/3rdparty>
     $<INSTALL_INTERFACE:include>)
 
-  target_include_directories(test_can PUBLIC ${LIBUSB_INCLUDE_DIRS})
-  target_link_libraries(
-    test_can
-    ${ECanVci_LIB_DIRS}/${ECanVci_LIBS}
-    ${ECanVci_LIB_DIRS}/${libusb_LIBS}
-  )
   target_compile_features(test_can PUBLIC c_std_99 cxx_std_20)  # Require C99 and C++17 -> C++20
   ament_target_dependencies(
     test_can

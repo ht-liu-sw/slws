@@ -18,7 +18,6 @@
 #include <rclcpp/logging.hpp>
 #include <rclcpp/node.hpp>
 #include <rclcpp/service.hpp>
-#include <sl_interfaces/srv/detail/update_motor_xyxz_offset__struct.hpp>
 #include <sl_interfaces/srv/update_motor_xyxz_offset.hpp>
 #include <sl_interfaces/srv/motor_xyxz_position_control.hpp>
 

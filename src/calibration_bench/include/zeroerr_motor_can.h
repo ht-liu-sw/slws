@@ -1,7 +1,11 @@
+#ifndef __ZEROERR_MOTOR_CAN_H__
+#define __ZEROERR_MOTOR_CAN_H__
+
 #pragma once
 #ifndef ZEROERR_MOTOR_H__
 #define ZEROERR_MOTOR_H__
 
+#include "can_comm.hpp"
 #include "motor_template.h"
 #include "zeroerr_motor_struct_can.hpp"
 #include <cstdint>
@@ -10,18 +14,8 @@
 #include <rclcpp/logger.hpp>
 #include <type_traits>
 
-
-#include "ECanVci.h"
-
-constexpr UINT USBCAN1 = 3;
-constexpr UINT USBCAN2 = 4;
-
-using can_info_t = struct can_info_t {
-  const UINT DeviceType = USBCAN1; // 单通道
-  const UINT DeviceInd = 0;
-  const UINT CANChannel = 0;
-};
 using frame_id_t = uint16_t;
+using frame_raw_data_t = std::vector<uint8_t>;
 
 constexpr frame_id_t zeroerr_can_frame_offset = 0x0640;
 /**
@@ -31,23 +25,38 @@ constexpr frame_id_t zeroerr_can_frame_offset = 0x0640;
 class zeroerr_motor_can : public motor_template {
 public:
   zeroerr_motor_can(const std::string &motor_name, const frame_id_t can_id,
-                    const can_info_t can_info)
-      : motor_template(motor_name), transmit_frame_id(zeroerr_can_frame_offset + can_id), recv_frame_id(zeroerr_can_frame_offset + can_id),
-        can_info(can_info) {}
+                    std::shared_ptr<can_comm> can_handle)
+      : motor_template(motor_name),
+        transmit_frame_id(zeroerr_can_frame_offset + can_id),
+        recv_frame_id(zeroerr_can_frame_offset + can_id),
+        can_handle(can_handle) {}
   bool position_control(const motor_position_control_parameter &param,
                         bool sync) override;
 
-  std::shared_ptr<zeroerr_communication_parameter>
-  dump_zeroerr_communication_parameter(const int32_t target_pose,
-                                       const int32_t profile_velocity,
-                                       const int32_t profile_acceleration,
-                                       const int32_t profile_deceleration);
+  std::shared_ptr<zeroerr_motor_default_frame::can_position_control_msg>
+  dump_can_position_control_msg(const int32_t target_pose,
+                                const int32_t profile_velocity,
+                                const int32_t profile_acceleration,
+                                const int32_t profile_deceleration);
+
+  bool switch_to_0N_moment_control();
+
+  bool release_break();
+  bool activate_break();
+
+  auto write_single_warp(const can_data_t &item, const std::string &part_msg)
+      -> bool;
 
   o_angle_t read_angle() override;
+
+  void clean_recv_buffer();
 
   bool wait_motion_finish();
 
 private:
+  static constexpr auto ZEROERR_CAN_TAIL_NORMAL = 0x3E;
+  static constexpr auto ZEROERR_CAN_TAIL_ERROR = 0x80;
+
   bool motor_enable();
   bool motor_disable();
   bool motion_start();
@@ -55,26 +64,14 @@ private:
   bool motion_quick_stop();
 
 private:
-  /**
-   * @brief 向电机写入motor_communication_parameter
-   *
-   * @param param
-   * @return true
-   * @return false
-   */
-  bool local_transmit(const motor_item_can &param);
-
-  /**
-   * @brief 读取回复
-   *
-   * @return std::vector<uint8_t> 返回数据数组
-   */
-  std::optional<std::vector<uint8_t>> local_recv();
+  std::optional<can_frame_t> sync_transmit_template(const can_data_t &msg);
 
 private:
   const frame_id_t transmit_frame_id;
   const frame_id_t recv_frame_id;
-  can_info_t can_info;
+  std::shared_ptr<can_comm> can_handle;
 };
 
 #endif // ZEROERR_MOTOR_H__
+
+#endif // __ZEROERR_MOTOR_CAN_H__

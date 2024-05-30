@@ -1,0 +1,10 @@
+float64 motor_xy_position_angle          # XY电机的目标位置（angle）
+float64 motor_xy_profile_velocity_angle  # XY运动速度 (angle/s)
+float64 motor_xy_acceleration_angle      # XY加速度 (angle/s^2)
+float64 motor_xy_deceleration_angle      # XY运动速度 (angle/s^2)
+float64 motor_xz_position_angle          # XZ电机的目标位置（angle)
+float64 motor_xz_profile_velocity_angle  # XZ运动速度 (angle/s)
+float64 motor_xz_acceleration_angle      # XZ加速度 (angle/s^2)
+float64 motor_xz_deceleration_angle      # XZ运动速度 (angle/s^2)
+---
+bool success
