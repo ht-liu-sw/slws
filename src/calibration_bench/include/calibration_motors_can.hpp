@@ -224,5 +224,4 @@ private:
   rclcpp::Logger logger;
   std::atomic<bool> init_finish{false};
   std::shared_ptr<can_comm> can_handle;
-  rclcpp::Publisher<
 };
