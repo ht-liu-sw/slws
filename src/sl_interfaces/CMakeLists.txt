@@ -26,6 +26,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/SensorDataInfo.msg"
   "msg/SensorDataStepCapInfo.msg"
   "msg/SensorDataConnectionInfo.msg"
+  "msg/SensorDataFrame.msg"
   DEPENDENCIES 
   std_msgs 
   sensor_msgs 
