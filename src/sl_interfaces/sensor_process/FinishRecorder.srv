@@ -1,0 +1,4 @@
+int32 id # from SensorRecordData.msg/id
+---
+bool success
+string message

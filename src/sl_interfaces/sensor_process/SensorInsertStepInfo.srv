@@ -1,0 +1,5 @@
+int32 recorder_id
+SensorRecordStepInfo step_info
+---
+bool success
+string message

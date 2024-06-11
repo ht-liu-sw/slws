@@ -1,0 +1,5 @@
+SensorHeader sensor_recorder_init_info
+---
+int32 new_recorder_data_id # SensorRecordData/id
+bool success
+string message

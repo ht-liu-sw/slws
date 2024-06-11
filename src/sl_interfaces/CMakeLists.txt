@@ -21,12 +21,17 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/MotorXYXZPositionControl.srv"
   "srv/UpdateMotorXYXZOffset.srv"
   # --- msg ---
-  "msg/SensorData.msg"
-  "msg/SensorDataHeader.msg"
-  "msg/SensorDataInfo.msg"
-  "msg/SensorDataStepCapInfo.msg"
-  "msg/SensorDataConnectionInfo.msg"
-  "msg/SensorDataFrame.msg"
+  # --- about package `sensor_process` ---
+  "sensor_process/SensorInfo.msg"
+  "sensor_process/SensorHeader.msg"
+  "sensor_process/SensorRecordData.msg"
+  "sensor_process/SensorRecordStepInfo.msg"
+  "sensor_process/SensorRecordSingleFrame.msg"
+  "sensor_process/StartNewSensorRecorder.srv"
+  "sensor_process/GetSensorRecorderData.srv"
+  "sensor_process/ReleaseSensorRecorder.srv"
+  "sensor_process/FinishRecorder.srv"
+  "sensor_process/SensorInsertStepInfo.srv"
   DEPENDENCIES 
   std_msgs 
   sensor_msgs 
