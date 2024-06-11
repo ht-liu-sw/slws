@@ -13,8 +13,8 @@ int main(int argc, char **argv) {
                                                       "motors",
                                                   .motor_xy_name = "motor_xy",
                                                   .motor_xz_name = "motor_xz",
-                                                  .motor_xy_can_id = 0x0B,
-                                                  .motor_xz_can_id = 0x03,
+                                                  .motor_xy_can_id = 0x07,
+                                                  .motor_xz_can_id = 0x08,
                                                   .can_device_name = "can0"};
   auto handle = calibration_motors_can(init_param);
   std::cout << "init can device: " << handle.init() << std::endl;
@@ -26,10 +26,10 @@ int main(int argc, char **argv) {
       RCLCPP_INFO(logger, "<position_xy, position_xz>: %lf, %lf",
                   poss.value().motor_xy_source_angle,
                   poss.value().motor_xz_source_angle);
-      handle.motor_xy_sync_position_control(PVAD(180., 15., 5., 5.));
-      handle.motor_xz_sync_position_control(PVAD(180., 15., 5., 5.));
-      handle.motor_xz_homing(VAD(15., 5., 5.));
-      handle.motor_xy_homing(VAD(15., 5., 5.));
+      //handle.motor_xy_sync_position_control(PVAD(180., 15., 5., 5.));
+      //handle.motor_xz_sync_position_control(PVAD(180., 15., 5., 5.));
+      //handle.motor_xz_homing(VAD(15., 5., 5.));
+      //handle.motor_xy_homing(VAD(15., 5., 5.));
       // handle.motor_xy_activate_break();
       // std::this_thread::sleep_for(std::chrono::milliseconds(1'000));
       // handle.motor_xy_release_break();

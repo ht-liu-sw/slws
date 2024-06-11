@@ -8,7 +8,6 @@
 #include <cmath>
 #include <memory>
 #include <optional>
-#include <ratio>
 #include <rclcpp/logger.hpp>
 #include <rclcpp/logging.hpp>
 #include <rclcpp/node.hpp>
